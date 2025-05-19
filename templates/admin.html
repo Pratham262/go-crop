@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .title }}</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/prediction">Crop Prediction</a></li>
+                <li><a href="/admin">Admin Dashboard</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <h1 class="gradient-title">Admin Dashboard</h1>
+            
+            <div class="admin-content">
+                <h2>User Management</h2>
+                
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ range .users }}
+                        <tr>
+                            <td>{{ .ID }}</td>
+                            <td>{{ .Username }}</td>
+                            <td>{{ if .IsAdmin }}Admin{{ else }}User{{ end }}</td>
+                        </tr>
+                        {{ end }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        &copy; Error404. All rights reserved.
+    </div>
+</body>
+</html>

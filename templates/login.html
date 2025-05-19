@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .title }}</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="auth-page">
+    <div class="auth-header">
+        <h1 class="gradient-title">Crop Prediction Application</h1>
+    </div>
+
+    <div class="auth-center-container">
+        <div class="auth-box">
+            <h2 class="auth-title">Login</h2>
+            
+            {{ if .error }}
+                <div class="error-message">
+                    <p>{{ .error }}</p>
+                </div>
+            {{ end }}
+            
+            <form action="/login" method="POST" class="auth-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="auth-actions">
+                    <button type="submit" class="submit-button">Login</button>
+                </div>
+            </form>
+            
+            <div class="auth-links">
+                <p>Don't have an account? <a href="/signup">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        &copy; Error404. All rights reserved.
+    </div>
+</body>
+</html>
